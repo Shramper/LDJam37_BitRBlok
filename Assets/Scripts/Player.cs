@@ -23,12 +23,18 @@ public class Player : MonoBehaviour {
 	[SerializeField] Text attackText;
 	[SerializeField] Text speedText;
 
+	[Header("Audio")]
+	[SerializeField] AudioClip walkAudio;
+	[SerializeField] AudioClip attackAudio;
+
 	Rigidbody rb2d;
+	AudioSource audioSource;
 	float currentHealth;
 
 	void Awake () {
 
 		rb2d = this.GetComponentInChildren<Rigidbody>();
+		audioSource = this.GetComponentInChildren<AudioSource>();
 		currentHealth = currentMaxHealth;
 		HideStatPanel();
 	}
@@ -67,7 +73,17 @@ public class Player : MonoBehaviour {
 			deltaPosition += currentMoveSpeed * Time.deltaTime * Vector3.back;
 		}
 
-		rb2d.MovePosition(this.transform.position + deltaPosition);
+		if(deltaPosition != Vector3.zero) {
+
+			if(!audioSource.isPlaying) {
+
+				audioSource.clip = walkAudio;
+				audioSource.pitch = Random.Range(0.9f, 1.1f);
+				audioSource.Play();
+			}
+
+			rb2d.MovePosition(this.transform.position + deltaPosition);
+		}
 	}
 
 	void ProcessRotation () {

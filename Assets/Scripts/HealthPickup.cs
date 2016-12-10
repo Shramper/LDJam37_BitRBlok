@@ -10,7 +10,9 @@ public class HealthPickup : MonoBehaviour {
 		if(other.CompareTag("Player")) {
 
 			other.GetComponent<Player>().RestoreHealth(additionAmount);
-			Destroy(this.gameObject);
+			this.GetComponent<AudioSource>().Play();
+			this.GetComponent<MeshRenderer>().enabled = false;
+			Destroy(this.gameObject, this.GetComponent<AudioSource>().clip.length);
 		}
 	}
 }
