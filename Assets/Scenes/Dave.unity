@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4469248, g: 0.49678648, b: 0.5750846, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692528, g: 0.49678677, b: 0.57508475, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -850,49 +850,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 741081620}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &744472745
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 744472746}
-  - 114: {fileID: 744472747}
-  m_Layer: 0
-  m_Name: Box Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &744472746
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 744472745}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
---- !u!114 &744472747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 744472745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e33a4fe1736e649978243e2cfb0c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minBoxSpawnAmount: 5
-  maxBoxSpawnAmount: 5
-  boxPrefab: {fileID: 1000013562711092, guid: 2f1aa24f71de5da47abee50a9338fbc7, type: 2}
 --- !u!1 &854513805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,7 +1599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opposingDoor: {fileID: 1966106624}
-  boxSpawner: {fileID: 744472747}
+  objectSpawner: {fileID: 1765783715}
   overlay: {fileID: 2024947228}
   fadeSpeed: 2
 --- !u!1 &1149855734
@@ -1970,7 +1927,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2178,7 +2135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opposingDoor: {fileID: 1514109773}
-  boxSpawner: {fileID: 744472747}
+  objectSpawner: {fileID: 1765783715}
   overlay: {fileID: 2024947228}
   fadeSpeed: 2
 --- !u!1 &1514109773
@@ -2235,7 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opposingDoor: {fileID: 1508266312}
-  boxSpawner: {fileID: 744472747}
+  objectSpawner: {fileID: 1765783715}
   overlay: {fileID: 2024947228}
   fadeSpeed: 2
 --- !u!1 &1550751689
@@ -2622,12 +2579,59 @@ RectTransform:
   - {fileID: 2024947227}
   - {fileID: 2030222001}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1765783714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1765783716}
+  - 114: {fileID: 1765783715}
+  m_Layer: 0
+  m_Name: Object Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1765783715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1765783714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf22c3e28b18e843abdb45bc03533cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minBoxSpawnAmount: 5
+  maxBoxSpawnAmount: 10
+  minEnemySpawnAmount: 5
+  maxEnemySpawnAmount: 10
+  boxPrefab: {fileID: 1000013562711092, guid: 2f1aa24f71de5da47abee50a9338fbc7, type: 2}
+  enemyPrefab: {fileID: 1000010149273964, guid: 95c36b10ef3b4ed4f9e2f224a9651194,
+    type: 2}
+--- !u!4 &1765783716
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1765783714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.87009525, y: -27.606281, z: 4.798828}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1792919896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,7 +2760,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1828824388
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,7 +3236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opposingDoor: {fileID: 1108354760}
-  boxSpawner: {fileID: 744472747}
+  objectSpawner: {fileID: 1765783715}
   overlay: {fileID: 2024947228}
   fadeSpeed: 2
 --- !u!1 &1969922465

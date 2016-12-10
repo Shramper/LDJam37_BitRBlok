@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Door : MonoBehaviour {
 
 	[SerializeField] GameObject opposingDoor;
-	[SerializeField] BoxSpawner boxSpawner;
+	[SerializeField] ObjectSpawner objectSpawner;
 	[SerializeField] Image overlay;
 	[SerializeField] float fadeSpeed = 0.1f;
 
@@ -37,7 +37,9 @@ public class Door : MonoBehaviour {
 
 			other.transform.position = opposingDoor.transform.position + 1.5f * opposingDoor.transform.forward;
 
-			boxSpawner.SpawnBoxes();
+            // boxSpawner.SpawnBoxes();
+            objectSpawner.SpawnEnemies();
+            objectSpawner.SpawnBoxes();
 		}
 	}
 }
