@@ -4,6 +4,7 @@ using UnityEngine.UI;
 [DisallowMultipleComponent]
 public class Door : MonoBehaviour {
 
+	[SerializeField] GameObject opposingDoor;
 	[SerializeField] BoxSpawner boxSpawner;
 	[SerializeField] Image overlay;
 	[SerializeField] float fadeSpeed = 0.1f;
@@ -12,18 +13,6 @@ public class Door : MonoBehaviour {
 
 	void Update () {
 
-//		if (fadingIn) {
-//
-//			float newAlpha = overlay.color.a;
-//			newAlpha += fadeSpeed * Time.deltaTime;
-//			overlay.color = new Color (0, 0, 0, newAlpha);
-//
-//			if (newAlpha >= 1) {
-//
-//				fadingIn = false;
-//				fadingOut = true;
-//			}
-//		}
 		if (fadingOut) {
 
 			float overlayAlpha = overlay.color.a;
@@ -46,10 +35,7 @@ public class Door : MonoBehaviour {
 			overlay.color = Color.black;
 			fadingOut = true;
 
-			GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
-
-			GameObject randomDoor = doors[Random.Range(0, doors.Length)];
-			other.transform.position = randomDoor.transform.position + 1.5f * randomDoor.transform.forward;
+			other.transform.position = opposingDoor.transform.position + 1.5f * opposingDoor.transform.forward;
 
 			boxSpawner.SpawnBoxes();
 		}
