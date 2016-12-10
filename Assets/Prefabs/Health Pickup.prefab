@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7831baab0f16c343be6cdaed8c477cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  additionAmount: 1
+  additionAmount: 10
 --- !u!135 &135000011952881932
 SphereCollider:
   m_ObjectHideFlags: 1

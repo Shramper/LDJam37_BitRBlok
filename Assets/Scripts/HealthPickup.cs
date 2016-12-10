@@ -3,13 +3,13 @@
 [DisallowMultipleComponent]
 public class HealthPickup : MonoBehaviour {
 
-	[SerializeField] float additionAmount = 1;
+	[SerializeField] float additionAmount = 10;
 
 	void OnTriggerEnter (Collider other) {
 
 		if(other.CompareTag("Player")) {
 
-			Debug.Log("Health!");
+			other.GetComponent<Player>().RestoreHealth(additionAmount);
 			Destroy(this.gameObject);
 		}
 	}

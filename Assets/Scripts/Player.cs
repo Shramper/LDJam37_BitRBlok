@@ -1,23 +1,48 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class Player : MonoBehaviour {
 
-	[SerializeField] float movementSpeed = 1;
+	[Header("Player Attributes")]
+	[SerializeField] float currentMaxHealth = 50;
+	[SerializeField] float currentAttack = 10;
+	[SerializeField] float currentMoveSpeed = 5;
+
+	[Header("Parameters")]
+	[SerializeField] float healthUpgradeAmount = 5;
+	[SerializeField] float attackUpgradeAmount = 5;
+	[SerializeField] float speedUpgradeAmount = 0.5f;
+
+	[Header("References")]
+	[SerializeField] GameObject statPanel;
+	[SerializeField] GameObject healthBar;
+	[SerializeField] Text maxHealthText;
+	[SerializeField] Text attackText;
+	[SerializeField] Text speedText;
 
 	Rigidbody rb2d;
+	float currentHealth;
 
 	void Awake () {
 
 		rb2d = this.GetComponentInChildren<Rigidbody>();
+		currentHealth = currentMaxHealth;
+		HideStatPanel();
 	}
 
+	#region Input
 	void FixedUpdate () {
 
 		ProcessMovement();
-		ProcessRotation();
-		ProcessActions();
+
+		if(!EventSystem.current.IsPointerOverGameObject()) {
+
+			ProcessRotation();
+			ProcessActions();
+		}
 	}
 
 	void ProcessMovement () {
@@ -26,20 +51,20 @@ public class Player : MonoBehaviour {
 
 		if(Input.GetKey(KeyCode.A)) {
 
-			deltaPosition += movementSpeed * Time.deltaTime * Vector3.left;
+			deltaPosition += currentMoveSpeed * Time.deltaTime * Vector3.left;
 		}
 		else if(Input.GetKey(KeyCode.D)) {
 
-			deltaPosition += movementSpeed * Time.deltaTime * Vector3.right;
+			deltaPosition += currentMoveSpeed * Time.deltaTime * Vector3.right;
 		}
 
 		if(Input.GetKey(KeyCode.W)) {
 
-			deltaPosition += movementSpeed * Time.deltaTime * Vector3.forward;
+			deltaPosition += currentMoveSpeed * Time.deltaTime * Vector3.forward;
 		}
 		else if(Input.GetKey(KeyCode.S)) {
 
-			deltaPosition += movementSpeed * Time.deltaTime * Vector3.back;
+			deltaPosition += currentMoveSpeed * Time.deltaTime * Vector3.back;
 		}
 
 		rb2d.MovePosition(this.transform.position + deltaPosition);
@@ -64,7 +89,76 @@ public class Player : MonoBehaviour {
 					box.GetComponent<Box>().DestroyBox();
 					Camera.main.GetComponent<CameraEffects>().ShakeCamera();
 				}
+				// TODO: else if Enemy!
 			}
 		}
 	}
+	#endregion
+
+	#region UI
+	public void ShowStatPanel () {
+
+		statPanel.SetActive(true);
+	}
+
+	public void HideStatPanel () {
+
+		statPanel.SetActive(false);
+	}
+	#endregion
+
+	#region Health
+	public void UpdateHealth () {
+
+		currentHealth = Mathf.Clamp(currentHealth, 0, currentMaxHealth);
+
+		// Update bar
+		float healthPercentage = currentHealth / currentMaxHealth;
+		healthBar.transform.localScale = new Vector3(healthPercentage, 1, 1);
+
+		// Update canvas value
+		maxHealthText.text = currentMaxHealth.ToString("000");
+	}
+
+	public void ReduceHealth (float damage) {
+
+		currentHealth -= damage;
+		UpdateHealth();
+		if(currentHealth <= 0) { PlayerDead(); }
+	}
+
+	public void RestoreHealth(float amount) {
+
+		currentHealth += amount;
+		UpdateHealth();
+	}
+
+	public void UpgradeHealth () {
+
+		currentMaxHealth += healthUpgradeAmount;
+		UpdateHealth();
+	}
+
+	public void PlayerDead () {
+
+		// TODO: Player death!
+		Debug.Log("Player dead!");
+	}
+	#endregion
+
+	#region Attack
+	public void UpgradeAttack () {
+
+		currentAttack += attackUpgradeAmount;
+		attackText.text = currentAttack.ToString("000");
+	}
+	#endregion
+
+	#region Speed
+	public void UpgradeSpeed () {
+
+		currentMoveSpeed += speedUpgradeAmount;
+		speedText.text = currentMoveSpeed.ToString("000");
+	}
+	#endregion
 }
