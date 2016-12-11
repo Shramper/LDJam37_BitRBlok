@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: be9a22e0e6f87304d8ae08f98a04b65b
+timeCreated: 1481489372
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - '!Basket of Hammers'
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
