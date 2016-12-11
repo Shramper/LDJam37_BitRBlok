@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
     public void Flee() {
         StopCoroutine("RangedAttack");
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().transform.localPosition;
-        Vector3 newPos = this.transform.position + target;
+        Vector3 newPos = this.transform.position - target;
         newPos = new Vector3(newPos.x, 0.4f, newPos.z);
         transform.Translate(new Vector3(newPos.x, 0, newPos.z ) * speed * dir * Time.deltaTime);
     }

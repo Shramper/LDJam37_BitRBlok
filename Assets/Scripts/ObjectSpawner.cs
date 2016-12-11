@@ -10,7 +10,7 @@ public class ObjectSpawner : MonoBehaviour {
 
 	[Header("References")]
 	[SerializeField] GameObject boxPrefab;
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject[] enemyPrefabs;
 
 	// Use this for initialization
 	void Start () {
@@ -43,10 +43,9 @@ public class ObjectSpawner : MonoBehaviour {
 			Vector3 spawnPosition = new Vector3(Random.Range(-7.5f, 7.5f), 0.4f, Random.Range(-3.5f, 3.5f));
 			Vector3 spawnRotation = new Vector3(0, Random.Range(0, 360f), 0);
 
-			GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.Euler(spawnRotation)) as GameObject;
+            int rand = Random.Range(0, enemyPrefabs.Length);
+			GameObject newEnemy = Instantiate(enemyPrefabs[rand], spawnPosition, Quaternion.Euler(spawnRotation)) as GameObject;
 			newEnemy.transform.SetParent(this.transform);
-            if (counter % 2 == 0) { newEnemy.GetComponent<Enemy>().SetRanged(true); }
-            counter++;
 		}
     }
 
