@@ -122,7 +122,10 @@ public class Player : MonoBehaviour {
 					box.GetComponent<Box>().DestroyBox();
 					Camera.main.GetComponent<CameraEffects>().ShakeCamera();
 				}
-				// TODO: else if Enemy!
+				else if(box.transform.name.Contains("Enemy")) {
+
+
+				}
 			}
 		}
 	}
