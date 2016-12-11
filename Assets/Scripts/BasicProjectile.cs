@@ -4,6 +4,7 @@ using System.Collections;
 public class BasicProjectile : MonoBehaviour {
 
     [SerializeField] float speed;
+    float damage;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +18,15 @@ public class BasicProjectile : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
-        if(other.name != "Area Trigger") { 
+        if(other.name != "Area Trigger") {
+            if (other.CompareTag("Player")) {
+                other.GetComponent<Player>().ReduceHealth(damage);
+            }
             Destroy(this.gameObject);
         }
+    }
+
+    public void SetDamage(float newDamage) {
+        damage = newDamage;
     }
 }

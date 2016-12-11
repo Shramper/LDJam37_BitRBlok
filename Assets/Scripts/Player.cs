@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour {
 	Rigidbody rb2d;
 	AudioSource audioSource;
 	float currentHealth;
+    bool attacking = false;
 
 	void Awake () {
 
@@ -122,9 +124,9 @@ public class Player : MonoBehaviour {
 					box.GetComponent<Box>().DestroyBox();
 					Camera.main.GetComponent<CameraEffects>().ShakeCamera();
 				}
-				else if(box.transform.name.Contains("Enemy")) {
+				else if(box.transform.name.Contains("Enemy") && !attacking) {
 
-
+                    StartCoroutine(AttackEnemy(box.gameObject));
 				}
 			}
 		}
@@ -197,5 +199,16 @@ public class Player : MonoBehaviour {
 		currentMoveSpeed += speedUpgradeAmount;
 		speedText.text = currentMoveSpeed.ToString("000");
 	}
-	#endregion
+    #endregion
+
+    #region Attack
+
+    IEnumerator AttackEnemy(GameObject enemy) {
+        attacking = true;
+        enemy.GetComponent<Enemy>().ReduceHealth(currentAttack);
+        yield return new WaitForSeconds(2);
+        attacking = false;
+    }
+
+    #endregion
 }
