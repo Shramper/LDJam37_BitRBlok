@@ -1,10 +1,23 @@
 fileFormatVersion: 2
-guid: fa24c97fab0e938429cfb65fa19f2f92
-timeCreated: 1481352446
+guid: c94fc69cb2ff8c041b875df8ac0185a0
+timeCreated: 1481402156
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Box001
+    100002: DoorFrame
+    100004: //RootNode
+    400000: Box001
+    400002: DoorFrame
+    400004: //RootNode
+    2300000: Box001
+    2300002: DoorFrame
+    3300000: Box001
+    3300002: DoorFrame
+    4300000: DoorFrame
+    4300002: Box001
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
