@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider), typeof(Rigidbody))]
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour {
 	[SerializeField] float speedUpgradeAmount = 0.5f;
 
 	[Header("References")]
+	[SerializeField] Image overlay;
 	[SerializeField] GameObject statPanel;
 	[SerializeField] GameObject healthBar;
 	[SerializeField] Text maxHealthText;
@@ -42,12 +44,27 @@ public class Player : MonoBehaviour {
 	#region Input
 	void FixedUpdate () {
 
-		ProcessMovement();
+		if(currentHealth > 0) {
+			
+			ProcessMovement();
 
-		if(!EventSystem.current.IsPointerOverGameObject()) {
+			if(!EventSystem.current.IsPointerOverGameObject()) {
 
-			ProcessRotation();
-			ProcessActions();
+				ProcessRotation();
+				ProcessActions();
+			}
+		}
+		else {
+			
+			float newAlpha = overlay.color.a;
+			newAlpha += Time.fixedDeltaTime;
+			overlay.color = new Color(1, 0, 0, newAlpha);
+			if(newAlpha > 2) { SceneManager.LoadScene(0); }
+		}
+
+		if(Input.GetKeyDown(KeyCode.Q)) {
+
+			ReduceHealth(10);
 		}
 	}
 
@@ -158,7 +175,8 @@ public class Player : MonoBehaviour {
 	public void PlayerDead () {
 
 		// TODO: Player death!
-		Debug.Log("Player dead!");
+		overlay.gameObject.SetActive(true);
+		overlay.color = new Color(1, 0, 0, 0);
 	}
 	#endregion
 
