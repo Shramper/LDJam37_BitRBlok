@@ -37,7 +37,6 @@ public class ObjectSpawner : MonoBehaviour {
 
 		// Spawn new enemies
 		int amountToSpawn = Random.Range(minEnemySpawnAmount, maxEnemySpawnAmount);
-        int counter = 0;
 		for(int i = 0; i < amountToSpawn; i++) {
 
 			Vector3 spawnPosition = new Vector3(Random.Range(-7.5f, 7.5f), 0.4f, Random.Range(-3.5f, 3.5f));

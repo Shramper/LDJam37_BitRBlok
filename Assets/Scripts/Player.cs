@@ -43,6 +43,11 @@ public class Player : MonoBehaviour {
 		HideStatPanel();
 	}
 
+    void Update() {
+        Vector3 oldRot = transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(0, oldRot.y, 0);
+    }
+
 	#region Input
 	void FixedUpdate () {
 

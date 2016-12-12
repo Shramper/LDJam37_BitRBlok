@@ -18,7 +18,9 @@ public class BasicProjectile : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
-        if(other.name != "Area Trigger") {
+        // Debug.Log(other.name);
+
+        if(other.name != "Area Trigger" && !other.name.Contains("Enemy")) {
             if (other.CompareTag("Player")) {
                 other.GetComponent<Player>().ReduceHealth(damage);
             }
