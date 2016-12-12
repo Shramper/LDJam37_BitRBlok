@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] GameObject healthBar;
     [SerializeField] Transform projectileSpawn;
+	[SerializeField] AudioClip meleeAudio;
+	[SerializeField] AudioClip rangeAudio;
+	[SerializeField] AudioClip deathAudio;
 
     [Header("Parameters")]
     [SerializeField] float stopDistance;
@@ -26,6 +29,7 @@ public class Enemy : MonoBehaviour {
     int dir = 1;
     [SerializeField] bool ranged = false;
     float currentHealth;
+	AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +37,7 @@ public class Enemy : MonoBehaviour {
         if(ranged) { StartCoroutine("RangedAttack"); }
         gameTimer = GameObject.FindGameObjectWithTag("Timer").GetComponent<GameTimer>();
         currentHealth = health;
+		audioSource = this.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -105,18 +110,25 @@ public class Enemy : MonoBehaviour {
         GameObject newBullet = GameObject.Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity) as GameObject;
         newBullet.GetComponent<Rigidbody>().AddForce(this.transform.forward * 10, ForceMode.Impulse);
         newBullet.GetComponent<BasicProjectile>().SetDamage(strength);
+		audioSource.clip = rangeAudio;
+		audioSource.Play();
         StartCoroutine("RangedAttack");
     }
 
     IEnumerator MeleeAttack() {
         attacking = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().ReduceHealth(strength);
+		audioSource.clip = meleeAudio;
+		audioSource.Play();
         yield return new WaitForSeconds(1.5f);
 
         attacking = false;
     }
 
     void KillEnemy() {
+		GameObject audioObject = new GameObject();
+		audioObject.AddComponent<AudioSource>();
+		audioObject.AddComponent<AudioSource>().PlayOneShot(deathAudio);
         Destroy(this.gameObject);
     }
 
@@ -150,6 +162,7 @@ public class Enemy : MonoBehaviour {
         currentHealth -= damage;
         UpdateHealth();
         if (currentHealth <= 0) {
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().ShowStatPanel();
             KillEnemy();
         }
     }

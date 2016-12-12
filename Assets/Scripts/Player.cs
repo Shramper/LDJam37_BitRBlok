@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
 	[Header("Audio")]
 	[SerializeField] AudioClip walkAudio;
 	[SerializeField] AudioClip attackAudio;
+	[SerializeField] AudioClip deathAudio;
 
 	Rigidbody rb2d;
 	AudioSource audioSource;
@@ -142,11 +143,29 @@ public class Player : MonoBehaviour {
 	public void ShowStatPanel () {
 
 		statPanel.SetActive(true);
+
+		Button[] statPanelButtons = statPanel.GetComponentsInChildren<Button>();
+		foreach (var button in statPanelButtons) {
+
+			button.interactable = true;
+		}
 	}
 
 	public void HideStatPanel () {
 
 		statPanel.SetActive(false);
+	}
+
+	public IEnumerator DelayHideStatPanel (float delay) {
+
+		Button[] statPanelButtons = statPanel.GetComponentsInChildren<Button>();
+		foreach (var button in statPanelButtons) {
+
+			button.interactable = false;
+		}
+
+		yield return new WaitForSeconds(delay);
+		HideStatPanel();
 	}
 	#endregion
 
@@ -165,9 +184,12 @@ public class Player : MonoBehaviour {
 
 	public void ReduceHealth (float damage) {
 
-		currentHealth -= damage;
-		UpdateHealth();
-		if(currentHealth <= 0) { PlayerDead(); }
+		if(currentHealth > 0) {
+			
+			currentHealth -= damage;
+			UpdateHealth();
+			if(currentHealth <= 0) { PlayerDead(); }
+		}
 	}
 
 	public void RestoreHealth(float amount) {
@@ -180,11 +202,12 @@ public class Player : MonoBehaviour {
 
 		currentMaxHealth += healthUpgradeAmount;
 		UpdateHealth();
+		StartCoroutine(DelayHideStatPanel(1));
 	}
 
 	public void PlayerDead () {
 
-		// TODO: Player death!
+		audioSource.PlayOneShot(deathAudio);
 		overlay.gameObject.SetActive(true);
 		overlay.color = new Color(1, 0, 0, 0);
 	}
@@ -195,6 +218,7 @@ public class Player : MonoBehaviour {
 
 		currentAttack += attackUpgradeAmount;
 		attackText.text = currentAttack.ToString("000");
+		StartCoroutine(DelayHideStatPanel(1));
 	}
 	#endregion
 
@@ -203,6 +227,7 @@ public class Player : MonoBehaviour {
 
 		currentMoveSpeed += speedUpgradeAmount;
 		speedText.text = currentMoveSpeed.ToString("000");
+		StartCoroutine(DelayHideStatPanel(1));
 	}
     #endregion
 
@@ -211,6 +236,8 @@ public class Player : MonoBehaviour {
     IEnumerator AttackEnemy(GameObject enemy) {
         attacking = true;
         enemy.GetComponent<Enemy>().ReduceHealth(currentAttack);
+		audioSource.clip = attackAudio;
+		audioSource.Play();
         yield return new WaitForSeconds(2);
         attacking = false;
     }
