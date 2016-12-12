@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: 990e974be48edaa4d841a2e83ac86829
+timeCreated: 1481522475
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Minotaur_Rigged_Draft:Body
+    100004: Minotaur_Rigged_Draft:chest
+    100006: Minotaur_Rigged_Draft:group1
+    100008: Minotaur_Rigged_Draft:head
+    100010: Minotaur_Rigged_Draft:headControl
+    100012: Minotaur_Rigged_Draft:Hips_Control
+    100014: Minotaur_Rigged_Draft:L_ankle
+    100016: Minotaur_Rigged_Draft:L_ArmControl
+    100018: Minotaur_Rigged_Draft:L_FootControl
+    100020: Minotaur_Rigged_Draft:L_hand
+    100022: Minotaur_Rigged_Draft:L_hoof
+    100024: Minotaur_Rigged_Draft:L_horn1
+    100026: Minotaur_Rigged_Draft:L_horn2
+    100028: Minotaur_Rigged_Draft:L_horn3
+    100030: Minotaur_Rigged_Draft:L_horn4
+    100032: Minotaur_Rigged_Draft:L_horn5
+    100034: Minotaur_Rigged_Draft:L_IKLeg
+    100036: Minotaur_Rigged_Draft:L_shoulder
+    100038: Minotaur_Rigged_Draft:L_thigh
+    100040: Minotaur_Rigged_Draft:Left Horn
+    100042: Minotaur_Rigged_Draft:Left Horn001
+    100044: Minotaur_Rigged_Draft:Plane001
+    100046: Minotaur_Rigged_Draft:R_ankle
+    100048: Minotaur_Rigged_Draft:R_ArmControl
+    100050: Minotaur_Rigged_Draft:R_FootControl
+    100052: Minotaur_Rigged_Draft:R_hand
+    100054: Minotaur_Rigged_Draft:R_hoof
+    100056: Minotaur_Rigged_Draft:R_horn1
+    100058: Minotaur_Rigged_Draft:R_horn2
+    100060: Minotaur_Rigged_Draft:R_horn3
+    100062: Minotaur_Rigged_Draft:R_horn4
+    100064: Minotaur_Rigged_Draft:R_horn5
+    100066: Minotaur_Rigged_Draft:R_IKLeg
+    100068: Minotaur_Rigged_Draft:R_shoulder
+    100070: Minotaur_Rigged_Draft:R_thigh
+    100072: Minotaur_Rigged_Draft:root
+    400000: //RootNode
+    400002: Minotaur_Rigged_Draft:Body
+    400004: Minotaur_Rigged_Draft:chest
+    400006: Minotaur_Rigged_Draft:group1
+    400008: Minotaur_Rigged_Draft:head
+    400010: Minotaur_Rigged_Draft:headControl
+    400012: Minotaur_Rigged_Draft:Hips_Control
+    400014: Minotaur_Rigged_Draft:L_ankle
+    400016: Minotaur_Rigged_Draft:L_ArmControl
+    400018: Minotaur_Rigged_Draft:L_FootControl
+    400020: Minotaur_Rigged_Draft:L_hand
+    400022: Minotaur_Rigged_Draft:L_hoof
+    400024: Minotaur_Rigged_Draft:L_horn1
+    400026: Minotaur_Rigged_Draft:L_horn2
+    400028: Minotaur_Rigged_Draft:L_horn3
+    400030: Minotaur_Rigged_Draft:L_horn4
+    400032: Minotaur_Rigged_Draft:L_horn5
+    400034: Minotaur_Rigged_Draft:L_IKLeg
+    400036: Minotaur_Rigged_Draft:L_shoulder
+    400038: Minotaur_Rigged_Draft:L_thigh
+    400040: Minotaur_Rigged_Draft:Left Horn
+    400042: Minotaur_Rigged_Draft:Left Horn001
+    400044: Minotaur_Rigged_Draft:Plane001
+    400046: Minotaur_Rigged_Draft:R_ankle
+    400048: Minotaur_Rigged_Draft:R_ArmControl
+    400050: Minotaur_Rigged_Draft:R_FootControl
+    400052: Minotaur_Rigged_Draft:R_hand
+    400054: Minotaur_Rigged_Draft:R_hoof
+    400056: Minotaur_Rigged_Draft:R_horn1
+    400058: Minotaur_Rigged_Draft:R_horn2
+    400060: Minotaur_Rigged_Draft:R_horn3
+    400062: Minotaur_Rigged_Draft:R_horn4
+    400064: Minotaur_Rigged_Draft:R_horn5
+    400066: Minotaur_Rigged_Draft:R_IKLeg
+    400068: Minotaur_Rigged_Draft:R_shoulder
+    400070: Minotaur_Rigged_Draft:R_thigh
+    400072: Minotaur_Rigged_Draft:root
+    2300000: Minotaur_Rigged_Draft:Plane001
+    3300000: Minotaur_Rigged_Draft:Plane001
+    4300000: Minotaur_Rigged_Draft:Plane001
+    4300002: Minotaur_Rigged_Draft:Body
+    4300004: Minotaur_Rigged_Draft:Left Horn
+    4300006: Minotaur_Rigged_Draft:Left Horn001
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Minotaur_Rigged_Draft:Body
+    13700002: Minotaur_Rigged_Draft:Left Horn
+    13700004: Minotaur_Rigged_Draft:Left Horn001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

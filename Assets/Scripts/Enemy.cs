@@ -126,6 +126,7 @@ public class Enemy : MonoBehaviour {
     }
 
     void KillEnemy() {
+		Camera.main.GetComponent<CameraEffects>().ShakeCamera();
 		GameObject audioObject = new GameObject();
 		audioObject.AddComponent<AudioSource>();
 		audioObject.AddComponent<AudioSource>().PlayOneShot(deathAudio);

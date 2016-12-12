@@ -110,7 +110,109 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Minotaur_Rigged_Draft:group1
+        weight: 1
+      - path: Minotaur_Rigged_Draft:group1/Minotaur_Rigged_Draft:Body
+        weight: 1
+      - path: Minotaur_Rigged_Draft:group1/Minotaur_Rigged_Draft:Body/Minotaur_Rigged_Draft:Left
+          Horn
+        weight: 1
+      - path: Minotaur_Rigged_Draft:group1/Minotaur_Rigged_Draft:Body/Minotaur_Rigged_Draft:Left
+          Horn001
+        weight: 1
+      - path: Minotaur_Rigged_Draft:Hips_Control
+        weight: 1
+      - path: Minotaur_Rigged_Draft:Hips_Control/Minotaur_Rigged_Draft:headControl
+        weight: 1
+      - path: Minotaur_Rigged_Draft:Hips_Control/Minotaur_Rigged_Draft:L_ArmControl
+        weight: 1
+      - path: Minotaur_Rigged_Draft:Hips_Control/Minotaur_Rigged_Draft:R_ArmControl
+        weight: 1
+      - path: Minotaur_Rigged_Draft:L_FootControl
+        weight: 1
+      - path: Minotaur_Rigged_Draft:L_FootControl/Minotaur_Rigged_Draft:L_IKLeg
+        weight: 1
+      - path: Minotaur_Rigged_Draft:R_FootControl
+        weight: 1
+      - path: Minotaur_Rigged_Draft:R_FootControl/Minotaur_Rigged_Draft:R_IKLeg
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:L_horn1
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:L_horn1/Minotaur_Rigged_Draft:L_horn2
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:L_horn1/Minotaur_Rigged_Draft:L_horn2/Minotaur_Rigged_Draft:L_horn3
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:L_horn1/Minotaur_Rigged_Draft:L_horn2/Minotaur_Rigged_Draft:L_horn3/Minotaur_Rigged_Draft:L_horn4
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:L_horn1/Minotaur_Rigged_Draft:L_horn2/Minotaur_Rigged_Draft:L_horn3/Minotaur_Rigged_Draft:L_horn4/Minotaur_Rigged_Draft:L_horn5
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:R_horn1
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:R_horn1/Minotaur_Rigged_Draft:R_horn2
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:R_horn1/Minotaur_Rigged_Draft:R_horn2/Minotaur_Rigged_Draft:R_horn3
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:R_horn1/Minotaur_Rigged_Draft:R_horn2/Minotaur_Rigged_Draft:R_horn3/Minotaur_Rigged_Draft:R_horn4
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:head/Minotaur_Rigged_Draft:R_horn1/Minotaur_Rigged_Draft:R_horn2/Minotaur_Rigged_Draft:R_horn3/Minotaur_Rigged_Draft:R_horn4/Minotaur_Rigged_Draft:R_horn5
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:L_shoulder
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:L_shoulder/Minotaur_Rigged_Draft:L_hand
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:R_shoulder
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:chest/Minotaur_Rigged_Draft:R_shoulder/Minotaur_Rigged_Draft:R_hand
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:L_thigh
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:L_thigh/Minotaur_Rigged_Draft:L_ankle
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:L_thigh/Minotaur_Rigged_Draft:L_ankle/Minotaur_Rigged_Draft:L_hoof
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:R_thigh
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:R_thigh/Minotaur_Rigged_Draft:R_ankle
+        weight: 1
+      - path: Minotaur_Rigged_Draft:root/Minotaur_Rigged_Draft:R_thigh/Minotaur_Rigged_Draft:R_ankle/Minotaur_Rigged_Draft:R_hoof
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

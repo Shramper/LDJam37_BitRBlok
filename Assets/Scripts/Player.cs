@@ -32,6 +32,7 @@ public class Player : MonoBehaviour {
 	[SerializeField] AudioClip deathAudio;
 
 	Rigidbody rb2d;
+	Animator animator;
 	AudioSource audioSource;
 	float currentHealth;
     bool attacking = false;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour {
 	void Awake () {
 
 		rb2d = this.GetComponentInChildren<Rigidbody>();
+		animator = this.GetComponentInChildren<Animator>();
 		audioSource = this.GetComponentInChildren<AudioSource>();
 		currentHealth = currentMaxHealth;
 		HideStatPanel();
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour {
 	void FixedUpdate () {
 
 		if(currentHealth > 0) {
-			
+
 			ProcessMovement();
 
 			if(!EventSystem.current.IsPointerOverGameObject()) {
@@ -109,6 +111,8 @@ public class Player : MonoBehaviour {
 
 			rb2d.MovePosition(this.transform.position + deltaPosition);
 		}
+
+		animator.SetFloat("velocity", deltaPosition.magnitude);
 	}
 
 	void ProcessRotation () {
@@ -127,8 +131,8 @@ public class Player : MonoBehaviour {
 
 				if(hitObject.GetComponent<Box>()) {
 
+					animator.SetTrigger("isAttacking");
 					hitObject.GetComponent<Box>().DestroyBox();
-					Camera.main.GetComponent<CameraEffects>().ShakeCamera();
 				}
 				else if(hitObject.transform.name.Contains("Enemy") && !attacking) {
 
@@ -180,6 +184,9 @@ public class Player : MonoBehaviour {
 
 		// Update canvas value
 		maxHealthText.text = currentMaxHealth.ToString("000");
+
+		// Camera Effects
+		//Camera.main.GetComponent<UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration>().chromaticAberration = 20 - healthPercentage * 19.2f;
 	}
 
 	public void ReduceHealth (float damage) {
@@ -236,6 +243,7 @@ public class Player : MonoBehaviour {
     IEnumerator AttackEnemy(GameObject enemy) {
         attacking = true;
         enemy.GetComponent<Enemy>().ReduceHealth(currentAttack);
+		animator.SetTrigger("isAttacking");
 		audioSource.clip = attackAudio;
 		audioSource.Play();
         yield return new WaitForSeconds(2);
