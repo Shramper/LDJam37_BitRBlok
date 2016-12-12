@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692528, g: 0.49678677, b: 0.57508475, a: 1}
+  m_IndirectSpecularColor: {r: 0.4469248, g: 0.49678648, b: 0.5750846, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2792,9 +2792,9 @@ MonoBehaviour:
   maxEnemySpawnAmount: 7
   boxPrefab: {fileID: 1000013562711092, guid: 2f1aa24f71de5da47abee50a9338fbc7, type: 2}
   enemyPrefabs:
-  - {fileID: 1000013151448456, guid: 115c97f5e5c3d7947b1547ad7582691a, type: 2}
-  - {fileID: 1000014035555058, guid: d6fec724a474c144eb97dbb57f5b4136, type: 2}
-  - {fileID: 1000010416082628, guid: 830dfffec88a4a64a93e12f78fcc7eed, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1765783716
 Transform:
   m_ObjectHideFlags: 0
@@ -3043,7 +3043,8 @@ MonoBehaviour:
 --- !u!1 &1831885042
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 1000013956949400, guid: 20837521f481aeb4cb01b5af3923fff2,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
@@ -3061,7 +3062,8 @@ GameObject:
 --- !u!224 &1831885043
 RectTransform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 224000011574727458, guid: 20837521f481aeb4cb01b5af3923fff2,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831885042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3079,7 +3081,8 @@ RectTransform:
 --- !u!114 &1831885044
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114000010719451372, guid: 20837521f481aeb4cb01b5af3923fff2,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831885042}
   m_Enabled: 1
@@ -3112,13 +3115,15 @@ MonoBehaviour:
 --- !u!222 &1831885045
 CanvasRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 222000010470997210, guid: 20837521f481aeb4cb01b5af3923fff2,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831885042}
 --- !u!114 &1831885046
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114000013356516090, guid: 20837521f481aeb4cb01b5af3923fff2,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831885042}
   m_Enabled: 1

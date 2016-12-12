@@ -36,7 +36,7 @@ public class ObjectSpawner : MonoBehaviour {
         DestroySpawnedObjects();
 
 		// Spawn new enemies
-		int amountToSpawn = Random.Range(minBoxSpawnAmount, maxBoxSpawnAmount);
+		int amountToSpawn = Random.Range(minEnemySpawnAmount, maxEnemySpawnAmount);
         int counter = 0;
 		for(int i = 0; i < amountToSpawn; i++) {
 

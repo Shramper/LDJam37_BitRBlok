@@ -117,16 +117,16 @@ public class Player : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) {
 
 			Collider[] hitObjectsArray = Physics.OverlapSphere(this.transform.position + this.transform.forward, 0.5f);
-			foreach (Collider box in hitObjectsArray) {
+			foreach (Collider hitObject in hitObjectsArray) {
 
-				if(box.GetComponent<Box>()) {
+				if(hitObject.GetComponent<Box>()) {
 
-					box.GetComponent<Box>().DestroyBox();
+					hitObject.GetComponent<Box>().DestroyBox();
 					Camera.main.GetComponent<CameraEffects>().ShakeCamera();
 				}
-				else if(box.transform.name.Contains("Enemy") && !attacking) {
+				else if(hitObject.transform.name.Contains("Enemy") && !attacking) {
 
-                    StartCoroutine(AttackEnemy(box.gameObject));
+                    StartCoroutine(AttackEnemy(hitObject.gameObject));
 				}
 			}
 		}
